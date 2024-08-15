@@ -1,3 +1,6 @@
+from conftest import get_script
 
-def test_some_function():
-    assert len("hello") == 5
+
+def test_finding_decorated_docstring(logger):
+    script = get_script('documented.py')
+    logger.info(f'Script: {script}')
