@@ -1,0 +1,19 @@
+[project]
+name = "kintsugi"
+description = "A Python module for enchancing the automatic documentation of functions and classes."
+readme = "README.md"
+requires-python = ">=3.12,<4.0"
+classifiers = [
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.12"
+]
+dynamic = ["version"]
+
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.dynamic]
+version = {attr = "kintsugi.__init__.__version__"}
