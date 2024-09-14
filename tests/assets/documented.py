@@ -33,3 +33,13 @@ class AnotherDocumentedClass:
             --@
         """
         return random.randint(1, 10)
+
+
+def documented_function() -> int:
+    """
+        This is a documented function
+        @--
+        #>AnotherDocumentedClass.another_method
+        --@
+    """
+    return AnotherDocumentedClass.another_method()
