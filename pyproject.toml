@@ -11,9 +11,52 @@ classifiers = [
 ]
 dynamic = ["version"]
 
+[project.optional-dependencies]
+dev = [
+  "mypy",
+  "flake8",
+  "pylint",
+]
+test = [
+  "pytest",
+  "pytest-cov",
+  "pytest-order",
+]
+
 [build-system]
 requires = ["setuptools", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools.dynamic]
 version = {attr = "kintsugi.__init__.__version__"}
+
+[tool.pytest.ini_options]
+addopts="--capture=no"
+log_cli=true
+log_level="INFO"
+log_cli_level="INFO"
+log_cli_format="%(message)s"
+
+[tools.mypy]
+python_version=3.12
+exclude = ['env/', 'build/']
+
+[tools.flake8]
+# ignore line length adjusted to internal standards
+max-line-length = 192
+
+[tools.pylint.MESSAGES_CONTROL]
+disable=[
+  "missing-module-docstring",
+  "missing-function-docstring",
+  "missing-class-docstring",
+  "logging-fstring-interpolation"
+]
+
+[tools.pylint.FORMAT]
+max-line-length=192
+
+[tools.pylint.BASIC]
+function-rgx="(([a-z][a-z0-9_]{2,72})|(_[a-z0-9_]*))$"
+method-rgx="(([a-z][a-z0-9_]{2,72})|(_[a-z0-9_]*))$"
+variable-rgx="(([a-z][a-z0-9_]{2,72})|(_[a-z0-9_]*))$"
