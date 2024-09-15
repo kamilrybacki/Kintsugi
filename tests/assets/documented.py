@@ -1,3 +1,4 @@
+"""This is a test module for Kintsugi tests"""
 import random
 
 
